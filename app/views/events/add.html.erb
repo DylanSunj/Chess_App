@@ -1,0 +1,52 @@
+<div>
+  <div>
+
+
+    <form action="/insert_event" method="post">
+      <div>
+        <label for="location_box">
+          Location
+        </label>
+
+        <input type="text" id="location_box" name="query_location">
+      </div>
+
+      <div>
+        <label for="date_box">
+          Date
+        </label>
+
+        <input type="datetime-local" id="date_box" name="query_date">
+      </div>
+
+      <div>
+        <label for="description_box">
+          Description
+        </label>
+
+        <textarea id="description_box" name="query_description" rows="3"></textarea>
+      </div>
+
+      <div>
+        <label for="people_box">
+          People
+        </label>
+
+        <input type="text" id="people_box" name="query_people">
+      </div>
+
+      <div>
+        <label for="attendees_count_box">
+          Attendees count
+        </label>
+
+        <input type="text" id="attendees_count_box" name="query_attendees_count">
+      </div>
+
+      <button>
+        Create event
+      </button>
+    </form>
+    
+  </div>
+</div>

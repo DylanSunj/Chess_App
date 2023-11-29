@@ -17,13 +17,17 @@ class EventsController < ApplicationController
     render({ :template => "events/show" })
   end
 
+  def add
+    render({ :template => "events/add"})
+  end
+
   def create
     the_event = Event.new
     the_event.location = params.fetch("query_location")
     the_event.date = params.fetch("query_date")
     the_event.description = params.fetch("query_description")
     the_event.people = params.fetch("query_people")
-    the_event.attendees_count = params.fetch("query_attendees_count")
+    the_event.attendees_count = the_event.people.count
 
     if the_event.valid?
       the_event.save

@@ -22,7 +22,9 @@ Rails.application.routes.draw do
 
   # Routes for the Event resource:
 
-  # CREATE
+  # ADD AND CREATE
+  get("/add_event", {:controller => "events", :action => "add"})
+
   post("/insert_event", { :controller => "events", :action => "create" })
           
   # READ

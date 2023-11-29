@@ -2,14 +2,13 @@
 #
 # Table name: events
 #
-#  id              :integer          not null, primary key
-#  attendees_count :integer
-#  date            :datetime
-#  description     :text
-#  location        :string
-#  people          :integer
-#  created_at      :datetime         not null
-#  updated_at      :datetime         not null
+#  id          :integer          not null, primary key
+#  date        :datetime
+#  description :text
+#  location    :string
+#  people      :integer
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
 #
 class Event < ApplicationRecord
   has_many  :attendees, class_name: "Attendee", foreign_key: "event", dependent: :nullify
