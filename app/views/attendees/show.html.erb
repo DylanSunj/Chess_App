@@ -1,0 +1,86 @@
+<div>
+  <div>
+    <h1>
+      Attendee #<%= @the_attendee.id %> details
+    </h1>
+
+    <div>
+      <div>
+        <a href="/attendees">
+          Go back
+        </a>
+      </div>
+
+      <div>
+        <a href="/delete_attendee/<%= @the_attendee.id %>">
+          Delete attendee
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        User
+      </dt>
+      <dd>
+        <%= @the_attendee.user %>
+      </dd>
+
+      <dt>
+        Event
+      </dt>
+      <dd>
+        <%= @the_attendee.event %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_attendee.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_attendee.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div>
+  <div>
+    <h2>
+      Edit attendee
+    </h2>
+
+    <form action="/modify_attendee/<%= @the_attendee.id %>"  method="post" >
+      <div>
+        <label for="user_box">
+          User
+        </label>
+
+        <input type="text" id="user_box" name="query_user" value="<%= @the_attendee.user %>">
+      </div>
+
+      <div>
+        <label for="event_box">
+          Event
+        </label>
+
+        <input type="text" id="event_box" name="query_event" value="<%= @the_attendee.event %>">
+      </div>
+
+      <button>
+        Update attendee
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>

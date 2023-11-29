@@ -1,0 +1,102 @@
+<div>
+  <div>
+    <h1>
+      List of all attendees
+    </h1>
+  </div>
+</div>
+
+<hr>
+
+<div>
+  <div>
+    <h2>
+      Add a new attendee
+    </h2>
+
+    <form action="/insert_attendee" method="post">
+      <div>
+        <label for="user_box">
+          User
+        </label>
+
+        <input type="text" id="user_box" name="query_user">
+      </div>
+
+      <div>
+        <label for="event_box">
+          Event
+        </label>
+
+        <input type="text" id="event_box" name="query_event">
+      </div>
+
+      <button>
+        Create attendee
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
+<div>
+  <div>
+    <table border="1">
+      <tr>
+        <th>
+          ID
+        </th>
+
+        <th>
+          User
+        </th>
+
+        <th>
+          Event
+        </th>
+
+        <th>
+          Created at
+        </th>
+
+        <th>
+          Updated at
+        </th>
+
+        <th>
+        </th>
+      </tr>
+
+      <% @list_of_attendees.each do |an_attendee| %>
+      <tr>
+        <td>
+          <%= an_attendee.id %>
+        </td>
+
+        <td>
+          <%= an_attendee.user %>
+        </td>
+
+        <td>
+          <%= an_attendee.event %>
+        </td>
+
+        <td>
+          <%= time_ago_in_words(an_attendee.created_at) %> ago
+        </td>
+        <td>
+          <%= time_ago_in_words(an_attendee.updated_at) %> ago
+        </td>
+
+        <td>
+          <a href="/attendees/<%= an_attendee.id %>">
+            Show details
+          </a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<hr>
