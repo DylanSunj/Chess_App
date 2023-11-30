@@ -93,3 +93,84 @@
     </table>
   </div>
 </div>
+
+<h2> Events I'm Attending </h2>
+
+<div>
+  <div>
+    <table border="1">
+      <tr>
+
+        <th>
+          Location
+        </th>
+
+        <th>
+          Date
+        </th>
+
+        <th>
+          Description
+        </th>
+
+        <th>
+          Attendees count
+        </th>
+
+        <th>
+          Posted
+        </th>
+
+        <th>
+          Last Updated
+        </th>
+
+        <th>
+          More Info
+        </th>
+
+      </tr>
+
+      <% Attendee.where(user: current_user.id).each do |participant| %>
+      <% an_event = Event.where(id: participant.event).first %>
+      <tr>
+
+        <td>
+          <%= an_event.location %>
+        </td>
+
+        <td>
+          <%= an_event.date %>
+        </td>
+
+        <td>
+          <%= an_event.description %>
+        </td>
+
+        <td>
+          <% if Attendee.where(event: an_event.id).count != nil %>
+            <%= Attendee.where(event: an_event.id).count %>
+          <% else %>
+            0
+          <% end %>
+
+        </td>
+
+        <td>
+          <%= time_ago_in_words(an_event.created_at) %> ago
+        </td>
+        <td>
+          <%= time_ago_in_words(an_event.updated_at) %> ago
+        </td>
+
+        <td>
+          <a href="/events/<%= an_event.id %>">
+            Show details
+          </a>
+        </td>
+
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>

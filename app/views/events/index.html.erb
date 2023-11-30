@@ -48,6 +48,7 @@
         </th>
 
         <th>
+          Status
         </th>
       </tr>
 
@@ -90,7 +91,11 @@
         </td>
 
         <td>
-          <% if Attendee.where(user: current_user.id, event: an_event.id) == nil%>
+          <% if current_user == nil %>
+            <a href="/users/sign_up"> Sign up to join! </a>
+          <% elsif Event.where(id: an_event.id, people: current_user.id).first != nil %>
+            Hosting
+          <% elsif Attendee.where(user: current_user.id, event: an_event.id).first == nil%>
             <a href="/insert_attendee/<%= an_event.id %>/<%= current_user.id%>">
               Join event!
             </a>

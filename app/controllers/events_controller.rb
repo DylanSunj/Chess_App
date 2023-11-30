@@ -69,8 +69,15 @@ class EventsController < ApplicationController
 
   def destroy
     the_id = params.fetch("path_id")
+
     the_event = Event.where({ :id => the_id }).at(0)
 
+    participants = Attendee.where(event: the_id)
+
+    participants.each do |participant|
+      participant.destroy
+    end 
+    
     the_event.destroy
 
     redirect_to("/events", { :notice => "Event deleted successfully."} )
