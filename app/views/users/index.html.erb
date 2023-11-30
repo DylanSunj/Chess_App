@@ -1,19 +1,9 @@
-<div>
-  <div>
-    <h1>
-      All Open-Play Chess Events
-    </h1>
-  </div>
-</div>
+<h1> Profile </h1>
 
 <hr>
-  <div>
-    <h3>
-      <a href="/add_event"> Add a new event! </a>
-    </h3>
-  </div>
 
-
+<h2> Events I'm Hosting </h2>
+ 
 <div>
   <div>
     <table border="1">
@@ -51,7 +41,7 @@
         </th>
       </tr>
 
-      <% @list_of_events.each do |an_event| %>
+      <% Event.where(people: current_user.id).each do |an_event| %>
 
       <tr>
 
@@ -95,7 +85,7 @@
               Join event!
             </a>
           <% else %>
-            Attending
+            <a href="/update_event/<%= an_event.id %>"> Update </a>
           <% end %>
         </td>
       </tr>
@@ -103,5 +93,3 @@
     </table>
   </div>
 </div>
-
-<hr>

@@ -19,12 +19,12 @@ class AttendeesController < ApplicationController
 
   def create
     the_attendee = Attendee.new
-    the_attendee.user = params.fetch("query_user")
-    the_attendee.event = params.fetch("query_event")
+    the_attendee.event = params.fetch("path_id")
+    the_attendee.user = params.fetch("user_id")
 
     if the_attendee.valid?
       the_attendee.save
-      redirect_to("/attendees", { :notice => "Attendee created successfully." })
+      redirect_to("/", { :notice => "Attendee created successfully." })
     else
       redirect_to("/attendees", { :alert => the_attendee.errors.full_messages.to_sentence })
     end

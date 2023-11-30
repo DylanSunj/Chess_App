@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   root "events#index"
 
   # CREATE
-  post("/insert_attendee", { :controller => "attendees", :action => "create" })
+  get("/insert_attendee/:path_id/:user_id", { :controller => "attendees", :action => "create" })
           
   # READ
   get("/attendees", { :controller => "attendees", :action => "index" })
@@ -33,12 +33,14 @@ Rails.application.routes.draw do
   get("/events/:path_id", { :controller => "events", :action => "show" })
   
   # UPDATE
-  
+  get("/update_event/:path_id", { :controller => "events", :action => "change" })
+
   post("/modify_event/:path_id", { :controller => "events", :action => "update" })
   
   # DELETE
   get("/delete_event/:path_id", { :controller => "events", :action => "destroy" })
 
+  get("/users/:username_id", { :controller => "users", :action => "index"})
   #------------------------------
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
