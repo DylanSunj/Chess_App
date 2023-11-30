@@ -40,7 +40,7 @@ Rails.application.routes.draw do
   # DELETE
   get("/delete_event/:path_id", { :controller => "events", :action => "destroy" })
 
-  get("/users/:username_id", { :controller => "users", :action => "index"})
+  get("/users", { :controller => "users", :action => "index"})
   #------------------------------
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html

@@ -8,15 +8,21 @@ class EventsController < ApplicationController
   end
 
   def show
+
     the_id = params.fetch("path_id")
 
-    matching_events = Event.where({ :id => the_id })
+    if Event.where({ :id => the_id}).first != nil 
+      matching_events = Event.where({ :id => the_id })
 
-    @the_event = matching_events.at(0)
-    
-    @attendees_count = Attendee.where(event: @the_event.id).count
+      @the_event = matching_events.at(0)
+      
+      @attendees_count = Attendee.where(event: @the_event.id).count
 
-    render({ :template => "events/show" })
+      render({ :template => "events/show" })
+    else
+      redirect_to("/events", { :alert => "That event does not exist!" })
+    end
+
   end
 
   def add
@@ -77,7 +83,7 @@ class EventsController < ApplicationController
     participants.each do |participant|
       participant.destroy
     end 
-    
+
     the_event.destroy
 
     redirect_to("/events", { :notice => "Event deleted successfully."} )
