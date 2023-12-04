@@ -1,7 +1,7 @@
 <div>
   <div>
     <h1>
-      Event #<%= @the_event.id %> details
+      <%= @the_event.location %> Event Details
     </h1>
 
     <div>
@@ -64,4 +64,53 @@
   </div>
 </div>
 
+<h2> Attendees </h2>
+<div>
+  <div>
+    <table border="1">
+      <tr>
+
+        <th>
+          Name
+        </th>
+
+        <th>
+          Rating
+        </th>
+
+        <th>
+          Bio
+        </th>
+
+       
+      </tr>
+
+      <% list_of_participants = Attendee.where(event: @the_event.id)%>
+      <% list_of_participants.each do |participant| %>
+      <% member = User.where(id: participant.user).at(0) %>
+
+      <tr>
+
+        <td>
+          <% if member != nil %>
+            <%= member.name %>
+          <% end %>
+        </td>
+
+        <td>
+          <% if member != nil %>
+            <%= member.rating %>
+          <% end %>
+        </td>
+
+        <td>
+          <% if member != nil %>
+            <%= member.bio %>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+    </table>
+  </div>
+</div>
 <hr>

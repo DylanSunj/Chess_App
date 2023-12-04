@@ -1,9 +1,76 @@
-<h1> Profile </h1>
+<h1> <%= current_user.name %> Profile </h1>
 
 <hr>
 
+<h2> Personal Information</h2>
+
+<div>
+  <div>
+
+    <dl>
+      <dt>
+        Name
+      </dt>
+      <dd>
+        <%= current_user.name %>
+      </dd>
+
+      <dt>
+        Rating
+      </dt>
+      <dd>
+        <%= current_user.rating %>
+      </dd>
+
+      <dt>
+        Bio
+      </dt>
+      <dd>
+        <%= current_user.bio %>
+      </dd>
+
+    </dl>
+  </div>
+</div>
+
+<div>
+  <div>
+    <form action="/insert_user_info/<%= current_user.id %>" method="post">
+      <div>
+        <label for="name_box">
+          Name
+        </label>
+
+        <input type="text" id="name_box" name="query_name" value="<%=current_user.name%>">
+      </div>
+
+      <div>
+        <label for="rating_box">
+          Chess Rating
+        </label>
+
+        <input type="text" id="rating_box" name="query_rating" value="<%=current_user.rating%>">
+      </div>
+
+      <div>
+        <label for="bio_box">
+          Bio
+        </label>
+
+        <textarea id="bio_box" name="query_bio" rows="3"><%=current_user.bio%></textarea>
+      </div>
+
+      <button>
+        Update User Info
+      </button>
+    </form>
+    
+  </div>
+</div>
+
+
 <h2> Events That I'm Hosting </h2>
- 
+
 <div>
   <div>
     <table border="1">
