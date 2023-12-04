@@ -33,31 +33,33 @@
   </div>
 </div>
 
+<h2> Update Information </h2>
+
 <div>
-  <div>
+  <div class="custom-form" >
     <form action="/insert_user_info/<%= current_user.id %>" method="post">
-      <div>
+      <div class="mb-3">
         <label for="name_box">
           Name
         </label>
 
-        <input type="text" id="name_box" name="query_name" value="<%=current_user.name%>">
+        <input type="text" class="form-control" id="name_box" name="query_name" value="<%=current_user.name%>">
       </div>
 
-      <div>
+      <div class="mb-3">
         <label for="rating_box">
           Chess Rating
         </label>
 
-        <input type="text" id="rating_box" name="query_rating" value="<%=current_user.rating%>">
+        <input type="text" class="form-control" id="rating_box" name="query_rating" value="<%=current_user.rating%>">
       </div>
 
-      <div>
+      <div class="mb-3">
         <label for="bio_box">
           Bio
         </label>
 
-        <textarea id="bio_box" name="query_bio" rows="3"><%=current_user.bio%></textarea>
+        <textarea id="bio_box" class="form-control" name="query_bio" rows="3"><%=current_user.bio%></textarea>
       </div>
 
       <button>
@@ -68,12 +70,14 @@
   </div>
 </div>
 
+<hr>
+
 
 <h2> Events That I'm Hosting </h2>
 
 <div>
   <div>
-    <table border="1">
+    <table border="1" class="table table-bordered">
       <tr>
 
         <th>
@@ -165,7 +169,7 @@
 
 <div>
   <div>
-    <table border="1">
+    <table border="1" class="table table-bordered">
       <tr>
 
         <th>

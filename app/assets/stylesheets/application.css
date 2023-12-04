@@ -18,3 +18,9 @@
   margin-left: 20px;
   margin-right: 20px;
 }
+
+.custom-form {
+  background-color: #f0f0f0; /* Set your desired background color */
+  padding: 20px; /* Optional: Add padding for better visual appeal */
+  border-radius: 10px; /* Optional: Add border-radius for rounded corners */
+}

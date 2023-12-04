@@ -10,7 +10,7 @@
           Location
         </label>
 
-        <input type="text" id="location_box" name="query_location" value="<%= @the_event.location %>">
+        <input type="text" class="form-control" id="location_box" name="query_location" value="<%= @the_event.location %>">
       </div>
 
       <div>
@@ -18,7 +18,7 @@
           Date
         </label>
 
-        <input type="datetime-local" id="date_box" name="query_date" value="<%= @the_event.date %>">
+        <input type="datetime-local" class="form-control" id="date_box" name="query_date" value="<%= @the_event.date %>">
       </div>
 
       <div>
@@ -26,7 +26,7 @@
           Description
         </label>
 
-        <textarea id="description_box" name="query_description"><%= @the_event.description %></textarea>
+        <textarea id="description_box" class="form-control" name="query_description"><%= @the_event.description %></textarea>
       </div>
 
       <button>
@@ -39,7 +39,7 @@
 <hr> 
 
 <div>
-  <a href="/delete_event/<%= @the_event.id %>">
+  <a href="/delete_event/<%= @the_event.id %>" class="btn btn-danger">
     Delete event
   </a>
 </div>
