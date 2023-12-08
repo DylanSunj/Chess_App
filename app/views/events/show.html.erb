@@ -43,10 +43,12 @@
       </dd>
 
       <dt>
-        People
+        Host
       </dt>
       <dd>
-        <%= @the_event.people %>
+        <% host = User.where({ :id => @the_event.people }).first %>
+        <%= host.email %>
+
       </dd>
 
       <dt>
