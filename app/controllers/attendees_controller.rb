@@ -47,10 +47,10 @@ class AttendeesController < ApplicationController
 
   def destroy
     the_id = params.fetch("path_id")
-    the_attendee = Attendee.where({ :id => the_id }).at(0)
+    the_attendee = Attendee.where({ :event => the_id, :user => current_user.id}).at(0)
 
     the_attendee.destroy
 
-    redirect_to("/attendees", { :notice => "Attendee deleted successfully."} )
+    redirect_to("/events", { :notice => "Update successful"} )
   end
 end

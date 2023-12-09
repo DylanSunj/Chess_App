@@ -9,7 +9,9 @@
 <hr>
   <div>
     <h3>
-      <a href="/add_event" class="btn btn-success"> Add a new event! </a>
+      <% if current_user != nil %>
+        <a href="/add_event" class="btn btn-success"> Add a new event! </a>
+      <% end %>
     </h3>
   </div>
 
@@ -84,9 +86,13 @@
         </td>
 
         <td>
-          <a href="/events/<%= an_event.id %>">
+          <% if current_user == nil %>
+            <a href="/users/sign_up"> Sign up to see details! </a>
+          <% else %>
+            <a href="/events/<%= an_event.id %>">
             Show details
-          </a>
+            </a>
+          <% end %>
         </td>
 
         <td>
@@ -99,7 +105,10 @@
               Join event!
             </a>
           <% else %>
-            Attending
+            Attending 
+            <div>
+
+            <a href="/delete_attendee/<%= an_event.id %>"> Cancel </a>
           <% end %>
         </td>
       </tr>
