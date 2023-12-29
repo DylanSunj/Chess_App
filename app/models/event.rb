@@ -14,4 +14,8 @@ class Event < ApplicationRecord
   has_many  :attendees, class_name: "Attendee", foreign_key: "event", dependent: :nullify
   has_many :participants, through: :attendees, source: :attendee
 
+  def start_time
+    date
+  end
+
 end

@@ -16,8 +16,8 @@
   </div>
 
 <div>
-  <div>
-    <table border="1" class="table table-bordered">
+  <div = "container mt-5">
+    <table id="eventTable" border="1" class="table table-bordered">
       <tr>
 
         <th>
@@ -26,6 +26,10 @@
 
         <th>
           Date
+        </th>
+
+        <th>
+          Time
         </th>
 
         <th>
@@ -62,7 +66,11 @@
         </td>
 
         <td>
-          <%= an_event.date %>
+          <%= an_event.date.strftime('%m/%d') %>
+        </td>
+
+        <td>
+          <%= an_event.date.strftime("%l:%M %p") %>
         </td>
 
         <td>
@@ -118,3 +126,17 @@
 </div>
 
 <hr>
+
+
+<div class="container-flex mt-5">
+  <%= month_calendar events: @list_of_events do |date, events| %>
+    <%= date.day %>
+    <div>
+    <% events.each do |an_event| %>
+      <a href="/events/<%= an_event.id %>" class="text-decoration-none">
+          <%= an_event.date.strftime("%l:%M %p")%> @ <%= an_event.location%>
+      </a>
+    </div>
+  <% end %>
+  <% end %>
+</div>

@@ -4,6 +4,9 @@ class EventsController < ApplicationController
 
     @list_of_events = matching_events.order({ :created_at => :desc })
 
+    start_date = params.fetch(:start_date, Date.today).to_date
+    @meetings = Event.where(starts_at: start_date.beginning_of_month.beginning_of_week..start_date.end_of_month.end_of_week)
+
     render({ :template => "events/index" })
   end
 

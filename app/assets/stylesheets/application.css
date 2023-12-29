@@ -24,3 +24,45 @@
   padding: 20px; /* Optional: Add padding for better visual appeal */
   border-radius: 10px; /* Optional: Add border-radius for rounded corners */
 }
+
+.square-cell {
+  width: 14.28%; /* 100% / 7 columns */
+  padding-bottom: 14.28%; /* Set the same percentage as width to make the cell square */
+}
+
+.simple-calendar {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12px;
+  font-family: Arial, sans-serif;
+  background-color: #fff;
+}
+
+.day {
+  width: 14.2857%;
+  height: 50px;
+  padding-bottom: 5px;
+  border: 1px solid #ccc;
+  text-align: center;
+}
+
+.wday-0 {}
+.wday-1 {}
+.wday-2 {}
+.wday-3 {}
+.wday-4 {}
+.wday-5 {}
+.wday-6 {}
+
+.today {}
+.past {}
+.future {}
+
+.start-date {}
+
+.prev-month {}
+.next-month { }
+.current-month {}
+
+.has-events {}
+}
