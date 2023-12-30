@@ -31,6 +31,41 @@
 }
 
 .simple-calendar {
+  max-width: 80%;
+  margin: auto;
+}
+
+.calendar-heading {
+  background-color: #007bff;
+  color: #fff;
+  padding: 15px;
+  border-radius: 5px;
+}
+
+.calendar-title {
+  font-size: 1.5rem;
+}
+
+.day-header {
+  background-color: #f8f9fa;
+  border: 1px solid #dee2e6;
+  text-align: center;
+}
+
+.day {
+  height: px;
+  padding: 10px;
+  border: 1px solid #dee2e6;
+  text-align: center;
+  background-color: #fff;
+}
+
+/* Add hover effect */
+.day:hover {
+  background-color: #f8f9fa;
+}
+
+.simple-calendar {
   width: 100%;
   border-collapse: collapse;
   font-size: 12px;
@@ -66,3 +101,4 @@
 
 .has-events {}
 }
+
